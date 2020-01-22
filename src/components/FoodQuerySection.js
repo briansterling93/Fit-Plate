@@ -21,25 +21,31 @@ const FoodQuerySection = () => {
     };
 
     try {
-      const headers = {
-        "Content-Type": "application/json"
+      const head = {
+        headers: {
+          "Content-Type": "application/json"
+        }
       };
 
       const body = JSON.stringify(newSearch);
 
+      //query UI input search
       const res = await axios.post(
         "https://api.nal.usda.gov/fdc/v1/search?api_key=Nqr7rveC0s3PtsDv3yNzxBa8v6TdKsifRah4by2v",
         body,
-        headers
+        head
       );
 
-      //   const res = await axios.get(
-      //     "https://api.nal.usda.gov/fdc/v1/search?api_key=Nqr7rveC0s3PtsDv3yNzxBa8v6TdKsifRah4by2v",
-      //     body,
-      //     headers
-      //   );
+      const searchId = res.data.foods[0].fdcId;
 
-      console.log(res.data);
+      const num = +searchId;
+
+      //query nutritional info of UI input search based off fdcID
+      const res2 = await axios.get(
+        "https://api.nal.usda.gov/fdc/v1/num?api_key=Nqr7rveC0s3PtsDv3yNzxBa8v6TdKsifRah4by2v"
+      );
+
+      console.log(res2.data);
     } catch (error) {
       console.error(error.message);
     }
