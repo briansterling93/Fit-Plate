@@ -38,11 +38,11 @@ const FoodQuerySection = () => {
 
       const searchId = res.data.foods[0].fdcId;
 
-      const num = +searchId;
+      const id = +searchId;
 
-      //query nutritional info of UI input search based off fdcID
+      //   query nutritional info of UI input search based off fdcID
       const res2 = await axios.get(
-        "https://api.nal.usda.gov/fdc/v1/num?api_key=Nqr7rveC0s3PtsDv3yNzxBa8v6TdKsifRah4by2v"
+        "https://api.nal.usda.gov/fdc/v1/{id}?api_key=Nqr7rveC0s3PtsDv3yNzxBa8v6TdKsifRah4by2v"
       );
 
       console.log(res2.data);
