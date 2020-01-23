@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import FoodDetails from "./FoodDetails";
 
 const FoodQuerySection = () => {
   const [foodQuery, setFoodQuery] = useState("");
@@ -70,6 +71,9 @@ const FoodQuerySection = () => {
       {/* <div id='header-button-add'>
         add 'add to plate?' button after item is searched
       </div> */}
+      <div>
+        <FoodDetails />
+      </div>
     </div>
   );
 };

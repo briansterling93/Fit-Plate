@@ -1,5 +1,5 @@
 #food-query-section {
-  height: 95vh;
+  height: 100vh;
   background-image: linear-gradient(
       to right bottom,
       rgba(126, 213, 111, 0.8),
@@ -9,7 +9,7 @@
   background-size: cover;
   background-repeat: no-repeat;
 
-  clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  // clip-path: polygon(0 0, 100% 0, 100% 95vh, 0 100%);
 }
 
 #header-titles {
@@ -43,6 +43,16 @@
   align-items: center;
   flex-direction: column;
   padding-top: 3rem;
+
+  button:hover {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  }
+
+  button:active {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+  }
 
   input {
     width: 27rem;

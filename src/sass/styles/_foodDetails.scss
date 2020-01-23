@@ -1,0 +1,29 @@
+#food-details-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#nutritional-info {
+  display: flex;
+  flex-direction: row;
+  padding-top: 3rem;
+}
+
+.nutritional-div {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 20rem;
+  background-color: white;
+  text-align: center;
+  opacity: 0.6;
+  padding: 1rem;
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+#box-spacer {
+  padding: 2rem;
+}
