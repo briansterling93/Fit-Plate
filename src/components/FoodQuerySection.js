@@ -51,7 +51,11 @@ const FoodQuerySection = () => {
           "?api_key=Nqr7rveC0s3PtsDv3yNzxBa8v6TdKsifRah4by2v"
       );
 
-      console.log(res2.data);
+      console.log(res2.data.labelNutrients.carbohydrates.value);
+      console.log(res2.data.labelNutrients.protein.value);
+      console.log(res2.data.labelNutrients.fat.value);
+      console.log(res2.data.labelNutrients.calories.value);
+      //connect items to corresponding states(above)
     } catch (error) {
       console.error(error.message);
     }
