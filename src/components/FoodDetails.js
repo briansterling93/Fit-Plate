@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 const FoodDetails = () => {
-  const [carbs, setCarbs] = useState("");
-  const [protein, setProtein] = useState("");
-  const [fats, setFats] = useState("");
+  const [carbs, setCarbs] = useState("50");
+  const [protein, setProtein] = useState("44");
+  const [fats, setFats] = useState("55");
   return (
     <div id="food-details-div">
       <div id="nutritional-info">
@@ -13,7 +13,7 @@ const FoodDetails = () => {
             <div>
               <h1>Carbs</h1>
             </div>
-            <div>{carbs}</div>
+            <div id="state-nutrition">{carbs}</div>
           </div>
         </div>
         <div id="box-spacer">
@@ -22,7 +22,7 @@ const FoodDetails = () => {
             <div>
               <h1>Protein</h1>
             </div>
-            <div>{protein}</div>
+            <div id="state-nutrition">{protein}</div>
           </div>
         </div>
         <div id="box-spacer">
@@ -31,7 +31,7 @@ const FoodDetails = () => {
             <div>
               <h1>Fats</h1>
             </div>
-            <div>{fats}</div>
+            <div id="state-nutrition">{fats}</div>
           </div>
         </div>
       </div>

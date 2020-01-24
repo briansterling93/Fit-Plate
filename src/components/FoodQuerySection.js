@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import FoodDetails from "./FoodDetails";
+import Plate from "./Plate.js";
 
 const FoodQuerySection = () => {
   const [foodQuery, setFoodQuery] = useState("");
@@ -73,6 +74,7 @@ const FoodQuerySection = () => {
       </div> */}
       <div>
         <FoodDetails />
+        <Plate />
       </div>
     </div>
   );

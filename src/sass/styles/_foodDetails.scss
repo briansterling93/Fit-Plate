@@ -7,12 +7,12 @@
 #nutritional-info {
   display: flex;
   flex-direction: row;
-  padding-top: 3rem;
+  padding-top: 2rem;
 }
 
 .nutritional-div {
-  width: 15rem;
-  height: 15rem;
+  width: 13rem;
+  height: 13rem;
   border-radius: 20rem;
   background-color: white;
   text-align: center;
@@ -20,10 +20,20 @@
   padding: 1rem;
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.7rem;
+    opacity: 0.9;
+    color: black;
+    font-weight: 600;
+    text-decoration: underline;
   }
 }
 
 #box-spacer {
   padding: 2rem;
+}
+
+#state-nutrition {
+  font-size: 5rem;
+  padding-top: 1rem;
+  color: black;
 }
