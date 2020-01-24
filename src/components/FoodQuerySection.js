@@ -38,14 +38,16 @@ const FoodQuerySection = () => {
         head
       );
 
-      const searchId = res.data.foods[0].fdcId;
+      console.log(res.data.foods[0]);
 
-      //query nutritional info of UI input search based off fdcId
-      const res2 = await axios.get(
-        "https://api.nal.usda.gov/fdc/v1/?api_key=Nqr7rveC0s3PtsDv3yNzxBa8v6TdKsifRah4by2v"
-      );
+      // const searchId = res.data.foods[0].fdcId;
 
-      console.log(res2.data);
+      // //query nutritional info of UI input search based off fdcId
+      // const res2 = await axios.get(
+      //   "https://api.nal.usda.gov/fdc/v1/?api_key=Nqr7rveC0s3PtsDv3yNzxBa8v6TdKsifRah4by2v"
+      // );
+
+      // console.log(res2.data);
     } catch (error) {
       console.error(error.message);
     }
@@ -60,18 +62,19 @@ const FoodQuerySection = () => {
           <span id="secondary-title">Better eating, longer living</span>
         </h1>
       </div>
-      {/* <input name="food-search" value={foodQuery} onChange={querySearch} />
-      <button onClick={queryFood}>Search</button>
-      <div>{foodItem}</div> */}
       <div id="header-input">
-        <input placeholder="Enter an Item" />
+        <input
+          name="food-search"
+          value={foodQuery}
+          onChange={querySearch}
+          placeholder="Enter an Item"
+        />
         <div id="btns-div">
-          <button id="search-button">Search</button>
+          <button id="search-button" onClick={queryFood}>
+            Search
+          </button>
         </div>
       </div>
-      {/* <div id='header-button-add'>
-        add 'add to plate?' button after item is searched
-      </div> */}
       <div>
         <FoodDetails />
         <Plate />
