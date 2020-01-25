@@ -52,7 +52,13 @@ const FoodQuerySection = () => {
       );
 
       //set user inputted food name to state
-      setFoodItem(res.data.foods[0].description);
+      setFoodItem([
+        ...foodItem,
+        {
+          id: foodItem.length,
+          value: res.data.foods[0].description
+        }
+      ]);
 
       //console.log(res.data.foods[0].description);
       console.log({ carbs: res2.data.labelNutrients.carbohydrates.value });
@@ -84,7 +90,6 @@ const FoodQuerySection = () => {
           <button id="search-button" onClick={queryFood}>
             Search
           </button>
-          {foodItem}
         </div>
       </div>
       <div>

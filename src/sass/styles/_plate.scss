@@ -77,3 +77,22 @@
 .totals-div {
   padding: 0.3rem;
 }
+
+#plate-items {
+  font-size: 1.5rem;
+  font-weight: 300;
+
+  ul {
+    list-style: none;
+    text-transform: capitalize;
+  }
+
+  button {
+    float: right;
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+    background-color: white;
+
+    cursor: pointer;
+  }
+}

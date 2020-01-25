@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+//context
+import { FoodQueryContext } from "../contexts/FoodQueryContext";
 
 const Plate = () => {
+  const { foodItem, setFoodItem } = useContext(FoodQueryContext); //contexts
   const [plate, setPlate] = useState([""]);
   const [plateCarbs, setPlateCarbs] = useState("0");
   const [plateProtein, setPlateProtein] = useState("0");
@@ -11,6 +15,19 @@ const Plate = () => {
       <div id="plate-main">
         <div id="plate-title">
           <h1>Current Plate</h1>
+        </div>
+        <div id="plate-items">
+          <ul>
+            {foodItem.map(item => (
+              <li key={item.id}>
+                {item.value}
+                <span>
+                  <button>Remove</button>
+                </span>
+                <hr />
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <div id="plate-stats-main">
