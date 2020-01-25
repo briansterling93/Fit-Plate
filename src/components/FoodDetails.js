@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+//context
+import { FoodDetailsContext } from "../contexts/FoodDetailsContext";
 
 const FoodDetails = () => {
-  const [carbs, setCarbs] = useState("");
-  const [protein, setProtein] = useState("");
-  const [fats, setFats] = useState("");
+  const { carbs, setCarbs } = useContext("FoodDetailsContext");
+  const { protein, setProtein } = useContext("FoodDetailsContext");
+  const { fats, setFats } = useContext("FoodDetailsContext");
+  const { calories, setCalories } = useContext("FoodDetailsContext");
   return (
     <div id="food-details-div">
       <div id="nutritional-info">
