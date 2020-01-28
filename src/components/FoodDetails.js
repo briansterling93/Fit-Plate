@@ -4,10 +4,10 @@ import React, { useState, useContext } from "react";
 import { FoodDetailsContext } from "../contexts/FoodDetailsContext";
 
 const FoodDetails = () => {
-  const { carbs, setCarbs } = useContext("FoodDetailsContext");
-  const { protein, setProtein } = useContext("FoodDetailsContext");
-  const { fats, setFats } = useContext("FoodDetailsContext");
-  const { calories, setCalories } = useContext("FoodDetailsContext");
+  // const { carbs, setCarbs } = useContext("FoodDetailsContext");
+  // const { protein, setProtein } = useContext("FoodDetailsContext");
+  // const { fats, setFats } = useContext("FoodDetailsContext");
+  // const { calories, setCalories } = useContext("FoodDetailsContext");
   return (
     <div id="food-details-div">
       <div id="nutritional-info">
@@ -17,7 +17,7 @@ const FoodDetails = () => {
             <div>
               <h1>Carbs</h1>
             </div>
-            <div id="state-nutrition">{carbs}</div>
+            <div id="state-nutrition"></div>
           </div>
         </div>
         <div id="box-spacer">
@@ -26,7 +26,7 @@ const FoodDetails = () => {
             <div>
               <h1>Protein</h1>
             </div>
-            <div id="state-nutrition">{protein}</div>
+            <div id="state-nutrition"></div>
           </div>
         </div>
         <div id="box-spacer">
@@ -35,7 +35,7 @@ const FoodDetails = () => {
             <div>
               <h1>Fats</h1>
             </div>
-            <div id="state-nutrition">{fats}</div>
+            <div id="state-nutrition"></div>
           </div>
         </div>
       </div>
