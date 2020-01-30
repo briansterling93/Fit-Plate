@@ -5,15 +5,12 @@ import "../sass/main.scss";
 
 //contexts
 import FoodQueryContextProvider from "../contexts/FoodQueryContext";
-import FoodDetailsContextProvider from "../contexts/FoodDetailsContext";
 
 const App = () => {
   return (
     <div>
       <FoodQueryContextProvider>
-        <FoodDetailsContextProvider>
-          <FoodQuerySection />
-        </FoodDetailsContextProvider>
+        <FoodQuerySection />
       </FoodQueryContextProvider>
     </div>
   );
