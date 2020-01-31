@@ -8,6 +8,8 @@ import { FoodQueryContext } from "../contexts/FoodQueryContext";
 
 const FoodQuerySection = () => {
   const [foodQuery, setFoodQuery] = useState("");
+  const [error, setError] = useState("");
+  const [addToPlate, setPlate] = useState("");
 
   const { foodItem, setFoodItem } = useContext(FoodQueryContext); //contexts
 
@@ -52,13 +54,31 @@ const FoodQuerySection = () => {
       );
 
       //set user inputted food name to state
-      setFoodItem([
-        ...foodItem,
-        {
-          id: foodItem.length,
-          value: res.data.foods[0].description
-        }
-      ]);
+      //error handling if item nutritional info not found
+      if (!res2.data.labelNutrients) {
+        setError("Item not found, please try again");
+      }
+
+      if (res2.data.labelNutrients)
+        setFoodItem([
+          ...foodItem,
+          {
+            id: foodItem.length,
+            value: res.data.foods[0].description
+          }
+        ]);
+
+      if (res2.data.labelNutrients) {
+        setError("");
+      }
+
+      if (res2.data.labelNutrients) {
+        setPlate(
+          <div>
+            <button>Add Item To Plate?</button>
+          </div>
+        );
+      }
 
       //console.log(res.data.foods[0].description);
       console.log({ carbs: res2.data.labelNutrients.carbohydrates.value });
@@ -86,10 +106,12 @@ const FoodQuerySection = () => {
           onChange={querySearch}
           placeholder="Enter an Item"
         />
+        <div id="error-div">{error}</div>
         <div id="btns-div">
           <button id="search-button" onClick={queryFood}>
             Search
           </button>
+          {addToPlate}
         </div>
       </div>
       <div>
