@@ -12,6 +12,9 @@ const FoodQuerySection = () => {
   const [addToPlate, setPlate] = useState("");
 
   const { foodItem, setFoodItem } = useContext(FoodQueryContext); //contexts
+  const { tableCarbs, setTableCarbs } = useContext(FoodQueryContext); //contexts
+  const { tableProtein, setTableProtein } = useContext(FoodQueryContext); //contexts
+  const { tableFats, setTableFats } = useContext(FoodQueryContext); //contexts
 
   //User input food query
   const querySearch = e => {
@@ -21,6 +24,8 @@ const FoodQuerySection = () => {
   //Query UI Input
   const queryFood = async e => {
     e.preventDefault();
+
+    setPlate("");
 
     const query = foodQuery;
 
@@ -53,20 +58,20 @@ const FoodQuerySection = () => {
           "?api_key=Nqr7rveC0s3PtsDv3yNzxBa8v6TdKsifRah4by2v"
       );
 
-      //set user inputted food name to state
       //error handling if item nutritional info not found
-      if (!res2.data.labelNutrients) {
+      if (!res2.data.labelNutrients || !res.data.foods[0].fdcId) {
         setError("Item not found, please try again");
       }
 
-      if (res2.data.labelNutrients)
-        setFoodItem([
-          ...foodItem,
-          {
-            id: foodItem.length,
-            value: res.data.foods[0].description
-          }
-        ]);
+      // //set user inputted food name to state (below)
+      // if (res2.data.labelNutrients)
+      //   setFoodItem([
+      //     ...foodItem,
+      //     {
+      //       id: foodItem.length,
+      //       value: res.data.foods[0].description
+      //     }
+      //   ]);
 
       if (res2.data.labelNutrients) {
         setError("");
@@ -74,9 +79,31 @@ const FoodQuerySection = () => {
 
       if (res2.data.labelNutrients) {
         setPlate(
-          <div>
-            <button>Add Item To Plate?</button>
+          <div
+            onClick={() =>
+              setFoodItem([
+                ...foodItem,
+                {
+                  id: foodItem.length,
+                  value: res.data.foods[0].description
+                }
+              ])
+            }
+          >
+            <button id="add-btn" onClick={() => setPlate("")}>
+              Add Item To Plate?
+            </button>
           </div>
+        );
+      }
+
+      if (res2.data.labelNutrients) {
+        setTableCarbs(
+          `${Math.floor(res2.data.labelNutrients.carbohydrates.value)}g`
+        );
+        setTableFats(`${Math.floor(res2.data.labelNutrients.fat.value)}g`);
+        setTableProtein(
+          `${Math.floor(res2.data.labelNutrients.protein.value)}g`
         );
       }
 
@@ -85,6 +112,7 @@ const FoodQuerySection = () => {
       console.log({ protein: res2.data.labelNutrients.protein.value });
       console.log({ fats: res2.data.labelNutrients.fat.value });
       console.log({ calories: res2.data.labelNutrients.calories.value });
+      console.log(foodItem);
     } catch (error) {
       console.error(error.message);
     }
@@ -106,12 +134,12 @@ const FoodQuerySection = () => {
           onChange={querySearch}
           placeholder="Enter an Item"
         />
+        {addToPlate}
         <div id="error-div">{error}</div>
         <div id="btns-div">
           <button id="search-button" onClick={queryFood}>
             Search
           </button>
-          {addToPlate}
         </div>
       </div>
       <div>
