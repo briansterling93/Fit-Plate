@@ -15,6 +15,10 @@ const FoodQuerySection = () => {
   const { tableCarbs, setTableCarbs } = useContext(FoodQueryContext); //contexts
   const { tableProtein, setTableProtein } = useContext(FoodQueryContext); //contexts
   const { tableFats, setTableFats } = useContext(FoodQueryContext); //contexts
+  const { setTotalCarbs } = useContext(FoodQueryContext); //contexts
+  const { setTotalProtein } = useContext(FoodQueryContext); //contexts
+  const { setTotalFats } = useContext(FoodQueryContext); //contexts
+  const { setTotalCalories } = useContext(FoodQueryContext); //contexts
 
   //User input food query
   const querySearch = e => {
@@ -60,7 +64,7 @@ const FoodQuerySection = () => {
 
       //error handling if item nutritional info not found
       if (!res2.data.labelNutrients || !res.data.foods[0].fdcId) {
-        setError("Item not found, please try again");
+        setError("Item not found, please try a different search.");
       }
 
       // //set user inputted food name to state (below)
@@ -81,6 +85,7 @@ const FoodQuerySection = () => {
         setPlate(
           <div
             onClick={() =>
+              //add item to plate (below)
               setFoodItem([
                 ...foodItem,
                 {

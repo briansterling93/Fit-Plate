@@ -1,15 +1,15 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
 //context
 import { FoodQueryContext } from "../contexts/FoodQueryContext";
 
 const Plate = () => {
   const { foodItem, setFoodItem } = useContext(FoodQueryContext); //contexts
-  const [plate, setPlate] = useState([""]);
-  const [plateCarbs, setPlateCarbs] = useState("0");
-  const [plateProtein, setPlateProtein] = useState("0");
-  const [plateFats, setPlateFats] = useState("0");
-  const [plateCalories, setPlateCalories] = useState("0");
+  const { totalCarbs } = useContext(FoodQueryContext); //contexts
+  const { totalProtein } = useContext(FoodQueryContext); //contexts
+  const { totalFats } = useContext(FoodQueryContext); //contexts
+  const { totalCalories } = useContext(FoodQueryContext); //contexts
+
   return (
     <div id="plate-div">
       <div id="plate-main">
@@ -40,25 +40,25 @@ const Plate = () => {
               <div>
                 <h4>Protein</h4>
               </div>
-              <div>{plateProtein}</div>
+              <div>{totalProtein}</div>
             </div>
             <div id="stats-main2" className="totals-div">
               <div>
                 <h4>Carbohydrates</h4>
               </div>
-              <div>{plateCarbs}</div>
+              <div>{totalCarbs}</div>
             </div>
             <div id="stats-main3" className="totals-div">
               <div>
                 <h4>Fats</h4>
               </div>
-              <div>{plateFats}</div>
+              <div>{totalFats}</div>
             </div>
             <div id="stats-main4" className="totals-div">
               <div>
                 <h4>Calories</h4>
               </div>
-              <div>{plateCalories}</div>
+              <div>{totalCalories}</div>
             </div>
           </div>
         </div>

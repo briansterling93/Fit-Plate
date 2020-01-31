@@ -7,6 +7,10 @@ const FoodQueryContextProvider = props => {
   const [tableCarbs, setTableCarbs] = useState("");
   const [tableProtein, setTableProtein] = useState("");
   const [tableFats, setTableFats] = useState("");
+  const [totalCarbs, setTotalCarbs] = useState("0");
+  const [totalProtein, setTotalProtein] = useState("0");
+  const [totalFats, setTotalFats] = useState("0");
+  const [totalCalories, setTotalCalories] = useState("0");
 
   const updateFoodItem = i => {
     setFoodItem(i);
@@ -38,7 +42,15 @@ const FoodQueryContextProvider = props => {
         handleProtein,
         tableFats,
         setTableFats,
-        handleFats
+        handleFats,
+        totalCarbs,
+        setTotalCarbs,
+        totalProtein,
+        setTotalProtein,
+        totalFats,
+        setTotalFats,
+        totalCalories,
+        setTotalCalories
       }}
     >
       {props.children}
