@@ -3,12 +3,12 @@ import React, { useState, createContext } from "react";
 export const FoodQueryContext = createContext();
 
 const FoodQueryContextProvider = props => {
-  const [foodItem, setFoodItem] = useState([""]);
+  const [foodItem, setFoodItem] = useState([]);
   const [tableCarbs, setTableCarbs] = useState("");
   const [tableProtein, setTableProtein] = useState("");
   const [tableFats, setTableFats] = useState("");
   const [totalCarbs, setTotalCarbs] = useState("0");
-  const [totalProtein, setTotalProtein] = useState("0");
+  const [totalProtein, setTotalProtein] = useState([0]);
   const [totalFats, setTotalFats] = useState("0");
   const [totalCalories, setTotalCalories] = useState("0");
 

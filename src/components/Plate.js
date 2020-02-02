@@ -21,9 +21,7 @@ const Plate = () => {
             {foodItem.map(item => (
               <li key={item.id}>
                 {item.value}
-                <span>
-                  <button>Remove</button>
-                </span>
+
                 <hr />
               </li>
             ))}

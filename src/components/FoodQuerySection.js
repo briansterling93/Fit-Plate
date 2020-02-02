@@ -15,10 +15,10 @@ const FoodQuerySection = () => {
   const { tableCarbs, setTableCarbs } = useContext(FoodQueryContext); //contexts
   const { tableProtein, setTableProtein } = useContext(FoodQueryContext); //contexts
   const { tableFats, setTableFats } = useContext(FoodQueryContext); //contexts
-  const { setTotalCarbs } = useContext(FoodQueryContext); //contexts
-  const { setTotalProtein } = useContext(FoodQueryContext); //contexts
-  const { setTotalFats } = useContext(FoodQueryContext); //contexts
-  const { setTotalCalories } = useContext(FoodQueryContext); //contexts
+  const { totalCarbs, setTotalCarbs } = useContext(FoodQueryContext); //contexts
+  const { totalProtein, setTotalProtein } = useContext(FoodQueryContext); //contexts
+  const { totalFats, setTotalFats } = useContext(FoodQueryContext); //contexts
+  const { totalCalories, setTotalCalories } = useContext(FoodQueryContext); //contexts
 
   //User input food query
   const querySearch = e => {
@@ -67,16 +67,6 @@ const FoodQuerySection = () => {
         setError("Item not found, please try a different search.");
       }
 
-      // //set user inputted food name to state (below)
-      // if (res2.data.labelNutrients)
-      //   setFoodItem([
-      //     ...foodItem,
-      //     {
-      //       id: foodItem.length,
-      //       value: res.data.foods[0].description
-      //     }
-      //   ]);
-
       if (res2.data.labelNutrients) {
         setError("");
       }
@@ -95,7 +85,34 @@ const FoodQuerySection = () => {
               ])
             }
           >
-            <button id="add-btn" onClick={() => setPlate("")}>
+            <button
+              id="add-btn"
+              onClick={() => {
+                setPlate("");
+                setFoodQuery("");
+                setTableCarbs("");
+                setTableProtein("");
+                setTableFats("");
+                setTotalProtein(
+                  Math.floor(
+                    +totalProtein + +res2.data.labelNutrients.protein.value
+                  )
+                );
+                setTotalCarbs(
+                  Math.floor(
+                    +totalCarbs + +res2.data.labelNutrients.carbohydrates.value
+                  )
+                );
+                setTotalFats(
+                  Math.floor(+totalFats + +res2.data.labelNutrients.fat.value)
+                );
+                setTotalCalories(
+                  Math.floor(
+                    +totalCalories + +res2.data.labelNutrients.calories.value
+                  )
+                );
+              }}
+            >
               Add Item To Plate?
             </button>
           </div>
