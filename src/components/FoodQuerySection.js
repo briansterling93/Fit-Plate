@@ -10,6 +10,7 @@ const FoodQuerySection = () => {
   const [foodQuery, setFoodQuery] = useState("");
   const [error, setError] = useState("");
   const [addToPlate, setPlate] = useState("");
+  const [resetBtn, setReset] = useState("");
 
   const { foodItem, setFoodItem } = useContext(FoodQueryContext); //contexts
   const { tableCarbs, setTableCarbs } = useContext(FoodQueryContext); //contexts
@@ -19,6 +20,19 @@ const FoodQuerySection = () => {
   const { totalProtein, setTotalProtein } = useContext(FoodQueryContext); //contexts
   const { totalFats, setTotalFats } = useContext(FoodQueryContext); //contexts
   const { totalCalories, setTotalCalories } = useContext(FoodQueryContext); //contexts
+
+  //clear plate function
+  const clearPlate = () => {
+    setTableCarbs("");
+    setTableProtein("");
+    setTableFats("");
+    setTotalCarbs(0);
+    setTotalProtein(0);
+    setTotalFats(0);
+    setTotalCalories(0);
+    setError("");
+    setFoodItem([]);
+  };
 
   //User input food query
   const querySearch = e => {
@@ -93,6 +107,13 @@ const FoodQuerySection = () => {
                 setTableCarbs("");
                 setTableProtein("");
                 setTableFats("");
+                setReset(
+                  <div id="reset-div">
+                    <div onClick={clearPlate}>
+                      <button id="reset-button">Clear Plate</button>
+                    </div>
+                  </div>
+                );
                 setTotalProtein(
                   Math.floor(
                     +totalProtein + +res2.data.labelNutrients.protein.value
@@ -158,10 +179,17 @@ const FoodQuerySection = () => {
         />
         {addToPlate}
         <div id="error-div">{error}</div>
+
         <div id="btns-div">
           <button id="search-button" onClick={queryFood}>
             Search
           </button>
+          {/* <div id="reset-div">
+            <button id="reset-button" onClick={clearPlate}>
+              Clear Plate
+            </button>
+          </div> */}
+          {resetBtn}
         </div>
       </div>
       <div>

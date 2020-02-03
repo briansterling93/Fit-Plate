@@ -28,6 +28,7 @@ const Plate = () => {
           </ul>
         </div>
       </div>
+
       <div id="plate-stats-main">
         <div id="plate-stats">
           <div id="plate-stats-title">

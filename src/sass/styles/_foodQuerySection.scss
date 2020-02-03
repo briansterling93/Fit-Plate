@@ -63,6 +63,8 @@
 
 #btns-div {
   padding-top: 1.3rem;
+  display: flex;
+  flex-direction: column;
 }
 
 #search-button {
@@ -76,6 +78,24 @@
   background-color: black;
   color: $off-white;
   border: 1px solid grey;
+}
+
+#reset-button {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.5rem 3rem;
+  border-radius: 10rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  outline: none;
+  background-color: red;
+  opacity: 0.4;
+  color: $off-white;
+  border: 1px solid grey;
+}
+
+#reset-div {
+  padding-top: 0.7rem;
 }
 
 #error-div {
