@@ -25,6 +25,7 @@ const FoodDetails = () => {
             <div>
               <h1>Protein</h1>
             </div>
+
             <div id="state-nutrition">{tableProtein}</div>
           </div>
         </div>

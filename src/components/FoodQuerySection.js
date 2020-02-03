@@ -32,6 +32,7 @@ const FoodQuerySection = () => {
     setTotalCalories(0);
     setError("");
     setFoodItem([]);
+    setReset("");
   };
 
   //User input food query

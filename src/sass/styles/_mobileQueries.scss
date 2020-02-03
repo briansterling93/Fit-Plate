@@ -86,7 +86,7 @@
   #nutritional-info {
     display: flex;
     flex-direction: row;
-    padding-top: 2rem;
+    padding-top: 1rem;
   }
 
   .nutritional-div {
@@ -96,7 +96,7 @@
     background-color: white;
     text-align: center;
     opacity: 0.7;
-    padding: 1rem;
+    padding: 0.4rem;
 
     h1 {
       font-size: 1.1rem;
@@ -111,8 +111,7 @@
   }
 
   #state-nutrition {
-    font-size: 2rem;
-    // padding-top: 1rem;
+    font-size: 1.3rem;
     color: $dark-royal-blue;
   }
 
@@ -127,7 +126,7 @@
   }
 
   #plate-main {
-    height: 18rem;
+    height: 12rem;
     width: 21rem;
     border-radius: 1rem;
     background-color: $off-white;
@@ -313,7 +312,7 @@
   #nutritional-info {
     display: flex;
     flex-direction: row;
-    padding-top: 2rem;
+    padding-top: rem;
   }
 
   .nutritional-div {
@@ -323,7 +322,7 @@
     background-color: white;
     text-align: center;
     opacity: 0.7;
-    padding: 1rem;
+    padding: 0.4rem;
 
     h1 {
       font-size: 0.9rem;
@@ -338,8 +337,8 @@
   }
 
   #state-nutrition {
-    font-size: 5rem;
-    padding-top: 1rem;
+    font-size: 1.1rem;
+
     color: $dark-royal-blue;
   }
 
@@ -354,7 +353,7 @@
   }
 
   #plate-main {
-    height: 18rem;
+    height: 11rem;
     width: 18rem;
     border-radius: 1rem;
     background-color: $off-white;
