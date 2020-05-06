@@ -15,6 +15,14 @@
   overflow: hidden;
 }
 
+#add-to-plate-div {
+  height: 0.5rem;
+}
+
+#error-div {
+  height: 0.5rem;
+}
+
 #plate-stats {
   height: 18rem;
   width: 12rem;
@@ -103,4 +111,8 @@
 
 #reset-btn {
   background-color: none;
+}
+
+#reset-btn-div {
+  height: 0.7rem;
 }

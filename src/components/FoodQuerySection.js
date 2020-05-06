@@ -36,12 +36,12 @@ const FoodQuerySection = () => {
   };
 
   //User input food query
-  const querySearch = e => {
+  const querySearch = (e) => {
     setFoodQuery(e.target.value);
   };
 
   //Query UI Input
-  const queryFood = async e => {
+  const queryFood = async (e) => {
     e.preventDefault();
 
     setPlate("");
@@ -49,14 +49,14 @@ const FoodQuerySection = () => {
     const query = foodQuery;
 
     const newSearch = {
-      generalSearchInput: query
+      generalSearchInput: query,
     };
 
     try {
       const head = {
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       };
 
       const body = JSON.stringify(newSearch);
@@ -95,8 +95,8 @@ const FoodQuerySection = () => {
                 ...foodItem,
                 {
                   id: foodItem.length,
-                  value: res.data.foods[0].description
-                }
+                  value: res.data.foods[0].description,
+                },
               ])
             }
           >
@@ -178,19 +178,14 @@ const FoodQuerySection = () => {
           onChange={querySearch}
           placeholder="Enter an Item"
         />
-        {addToPlate}
+        <div id="add-to-plate-div">{addToPlate}</div>
         <div id="error-div">{error}</div>
 
         <div id="btns-div">
           <button id="search-button" onClick={queryFood}>
             Search
           </button>
-          {/* <div id="reset-div">
-            <button id="reset-button" onClick={clearPlate}>
-              Clear Plate
-            </button>
-          </div> */}
-          {resetBtn}
+          <div id="reset-btn-div">{resetBtn}</div>
         </div>
       </div>
       <div>
