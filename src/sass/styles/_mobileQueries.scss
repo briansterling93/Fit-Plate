@@ -63,7 +63,7 @@
   }
 
   #btns-div {
-    padding-top: 1.3rem;
+    padding-top: 1rem;
   }
 
   #search-button {
@@ -110,6 +110,7 @@
 
   #box-spacer {
     padding: 0.6rem;
+    padding-top: 2rem;
   }
 
   #state-nutrition {
@@ -289,7 +290,7 @@
   }
 
   #btns-div {
-    padding-top: 1.3rem;
+    padding-top: 1rem;
   }
 
   #search-button {
@@ -336,6 +337,7 @@
 
   #box-spacer {
     padding: 0.6rem;
+    padding-top: 2rem;
   }
 
   #state-nutrition {
@@ -450,15 +452,3 @@
     }
   }
 }
-
-// @media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-//   html {
-//     transform: rotate(-90deg);
-//     transform-origin: left top;
-//     width: 100vh;
-//     overflow-x: hidden;
-//     position: absolute;
-//     top: 100%;
-//     left: 0;
-//   }
-// }
